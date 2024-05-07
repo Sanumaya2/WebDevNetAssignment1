@@ -26,14 +26,13 @@ namespace Vidhyalaya.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Medium")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Medium")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("SessionYear")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Subjects")
+                    b.Property<string>("Subject")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -44,8 +43,9 @@ namespace Vidhyalaya.Migrations
 
             modelBuilder.Entity("Guardian", b =>
                 {
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -55,9 +55,13 @@ namespace Vidhyalaya.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.ToTable("Guardian");
+                    b.HasKey("Id");
+
+                    b.ToTable("GuardianDetails");
                 });
 
             modelBuilder.Entity("Student", b =>
@@ -73,37 +77,23 @@ namespace Vidhyalaya.Migrations
                     b.Property<DateTime>("Dob")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("GuardianDetailsName")
+                    b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<byte[]>("Photo")
-                        .IsRequired()
-                        .HasColumnType("BLOB");
-
-                    b.Property<int>("sex")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Photo")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GuardianDetailsName");
-
                     b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("Student", b =>
-                {
-                    b.HasOne("Guardian", "GuardianDetails")
-                        .WithMany()
-                        .HasForeignKey("GuardianDetailsName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GuardianDetails");
                 });
 #pragma warning restore 612, 618
         }
