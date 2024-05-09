@@ -24,6 +24,7 @@ namespace Vidhyalaya.Pages_Grades
 
         [BindProperty]
         public Grade Grade { get; set; } = default!;
+        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
