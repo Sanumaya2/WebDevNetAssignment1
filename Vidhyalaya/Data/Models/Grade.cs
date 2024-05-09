@@ -9,6 +9,7 @@ public class Grade
     public Medium Medium {get ; set ;}
     public string Subject {get ; set ;}
     public DateTime SessionYear {get ; set ;}
+   
 
 }
 public enum Medium
