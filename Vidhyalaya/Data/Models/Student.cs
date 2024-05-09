@@ -10,6 +10,9 @@ public class Student
     public DateTime Dob { get; set; }
    public string? Photo {get ; set ;}
    public bool IsActive {get; set ;}
+    public int? GradeLabel { get; set; } 
+    public Grade? Grade { get; set; } 
+
     
 
 
