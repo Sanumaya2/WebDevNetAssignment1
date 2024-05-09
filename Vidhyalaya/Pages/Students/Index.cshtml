@@ -2,14 +2,16 @@
 @model Vidhyalaya.Pages_Students.IndexModel
 
 <p>
-    <a asp-page="Create" class="btn btn-success "><i class="bi bi-plus"></i>Add Students</a>
+    <a asp-page="/students/Create" class="btn btn-success "><i class="bi bi-plus"></i>Add Students</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th scope="col">Id</th>
             <th>
                 @Html.DisplayNameFor(model => model.Student[0].Name)
             </th>
+             <th>ClassTeacher</th>
             <th>
                 @Html.DisplayNameFor(model => model.Student[0].Address)
             </th>
@@ -26,7 +28,6 @@
                 @Html.DisplayNameFor(model => model.Student[0].IsActive)
             </th>
             <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +41,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
+                 <td>@(item.Grade?.ClassTeacher ?? "N/A")
+                    
+                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Address)
                 </td>
@@ -52,7 +56,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Photo)
                 </td>
-                <td>
+                <td class="btn btn-success">
                     @Html.DisplayFor(modelItem => item.IsActive)
                 </td>
                 <td>
