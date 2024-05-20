@@ -8,7 +8,7 @@
 <table class="table">
     <thead>
         <tr>
-             <th>StudentName</th>
+         
             <th>
                 @Html.DisplayNameFor(model => model.Guardian[0].Name)
             </th>
@@ -18,6 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Guardian[0].ContactNumber)
             </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Guardian[0].Student)
+            </th>
            
             <th></th>
         </tr>
@@ -25,7 +28,7 @@
     <tbody>
 @foreach (var item in Model.Guardian) {
         <tr>
-             <td>@(item.Student?.Name ?? "N/A")</td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -34,6 +37,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Student.Id)
             </td>
            
             <td>
