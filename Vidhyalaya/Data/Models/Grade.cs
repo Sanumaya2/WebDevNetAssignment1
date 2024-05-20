@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 public class Grade
 {
       [Key] // Specify that Label is the primary key
+      public int Id {get ; set ;}
     public int Label {get ; set ;}
     public string ClassTeacher{get ; set ;}
     public Medium Medium {get ; set ;}
